@@ -46,7 +46,7 @@ message(STATUS "Build time ${_today}")
 message(STATUS "Build user $ENV{USER}")
 
 # set the project name
-project(cligen VERSION 5.5.0)
+project(cligen VERSION 5.6.0)
 
 # build the cligen library
 add_subdirectory(cligen)
