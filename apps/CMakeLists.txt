@@ -17,7 +17,7 @@ foreach(_app IN LISTS cligen_apps)
 	add_executable(${_app} "${_app}.c")
 
 	# link against the cligen library
-	target_link_libraries(${_app} PUBLIC cligen_shared)
+	target_link_libraries(${_app} PUBLIC cligen_static)
 
 	# point to public headers
 	target_include_directories(${_app} PUBLIC "${PROJECT_SOURCE_DIR}/include")

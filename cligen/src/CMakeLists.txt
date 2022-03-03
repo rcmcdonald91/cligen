@@ -4,7 +4,7 @@
 #
 
 # bring in required CMake modules
-INCLUDE(GNUInstallDirs)
+include(GNUInstallDirs)
 
 # set a few variables required for build.c
 string(TIMESTAMP _today "%Y.%m.%d %H:%M")
@@ -15,9 +15,16 @@ string(LENGTH "${CLIGEN_BUILDSTR}" CLIGEN_BUILDSTR_LEN)
 # now generate build.c
 configure_file(build.c.in build.c @ONLY)
 
+# start bison/flex section
+message(STATUS "Locating BISON/FLEX:")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+
 # locate suitable bison and flex
 find_package(BISON REQUIRED)
 find_package(FLEX REQUIRED)
+
+# end bison/flex section
+list(POP_BACK CMAKE_MESSAGE_INDENT)
 
 # flex/bison targets, used in multiple places below
 set(bison_target cligen_parse)
@@ -100,4 +107,7 @@ endforeach()
 set_property(TARGET ${cligen_shared} PROPERTY LIBRARY_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
 set_property(TARGET ${cligen_static} PROPERTY ARCHIVE_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
 
-set_target_properties(${cligen_shared} PROPERTIES SOVERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")
+set_target_properties(${cligen_shared} PROPERTIES
+	VERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}"
+	SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+)

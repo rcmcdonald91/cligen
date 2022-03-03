@@ -20,6 +20,13 @@ if(NOT UNIX)
     message(FATAL_ERROR "Only *nix like systems are supported.")
 endif()
 
+# turn on testing framework
+enable_testing()
+
+# start preflight check section
+message(STATUS "Performing preflight checks:")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+
 # define default build type
 set(default_build_type "Debug")
 
@@ -47,17 +54,23 @@ message(STATUS "Build user $ENV{USER}")
 
 # set the project name
 project(cligen
-    VERSION 5.5.0
+    VERSION 5.6.0
     DESCRIPTION "Command-Line Interface generator"
     HOMEPAGE_URL "http://www.cligen.se/"
     LANGUAGES C
 )
 
-# build the cligen library
+# end the preflight check section
+list(POP_BACK CMAKE_MESSAGE_INDENT)
+
+# first build the cligen library
 add_subdirectory(cligen)
 
-# build the cligen apps
+# second build the cligen apps
 add_subdirectory(apps)
+
+# bring in the tests
+add_subdirectory(test)
 
 # install public headers from include/*.h, which are all public headers
 install(DIRECTORY include/ TYPE INCLUDE FILES_MATCHING PATTERN "*.h")
