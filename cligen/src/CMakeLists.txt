@@ -65,33 +65,39 @@ set(LIB_SOURCES_GENERATED
 	${CMAKE_CURRENT_BINARY_DIR}/build.c
 )
 
-# declare cligen object library target, used for both shared and static libraries
-add_library(cligen_obj OBJECT
-	${LIB_SOURCES}
-	${LIB_SOURCES_GENERATED}
+# declare all the required sources for building
+set(LIB_SOURCES_ALL
+	"${LIB_SOURCES}"
+	"${LIB_SOURCES_GENERATED}"
 	"${FLEX_${flex_target}_OUTPUTS}"
-	"${BISON_${bison_target}_OUTPUTS}"
+	"${BISON_${bison_target}_OUTPUTS}"	
 )
 
-# shared libraries need PIC, enable it here
-set_property(TARGET cligen_obj PROPERTY POSITION_INDEPENDENT_CODE ON)
+# boilerplate for reusing
+set(cligen_shared cligen_shared)
+set(cligen_static cligen_static)
 
-# target any private internal headers
-target_include_directories(cligen_obj
-	PRIVATE ../include
-	PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/../include"
+# declare both shared and static variants of the library
+add_library(${cligen_shared} SHARED "${LIB_SOURCES_ALL}")
+add_library(${cligen_static} STATIC "${LIB_SOURCES_ALL}")
+
+# for performing batch modifications to properties
+set(cligen_targets
+	${cligen_shared}
+	${cligen_static}
 )
 
-# target any public headers, these need to be installed too for library users
-target_include_directories(cligen_obj PUBLIC ../../include/cligen)
-
-# shared and static libraries are built from the same object files
-add_library(cligen_shared SHARED $<TARGET_OBJECTS:cligen_obj>)
-add_library(cligen_static STATIC $<TARGET_OBJECTS:cligen_obj>)
+# set include directories for both private and public headers
+foreach(_target IN LISTS cligen_targets)
+	target_include_directories(${_target}
+		PUBLIC "../../include/cligen"
+		PRIVATE "../include"
+		PRIVATE "${CMAKE_CURRENT_BINARY_DIR}/../include"
+	)
+endforeach()
 
 # rename the library target output names accordingly
-set_property(TARGET cligen_shared PROPERTY LIBRARY_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
-set_property(TARGET cligen_static PROPERTY ARCHIVE_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
+set_property(TARGET ${cligen_shared} PROPERTY LIBRARY_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
+set_property(TARGET ${cligen_static} PROPERTY ARCHIVE_OUTPUT_NAME ${CMAKE_PROJECT_NAME})
 
-# set versioning for namelinks on shared library
-set_property(TARGET cligen_shared PROPERTY VERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")
+set_target_properties(${cligen_shared} PROPERTIES SOVERSION "${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}")

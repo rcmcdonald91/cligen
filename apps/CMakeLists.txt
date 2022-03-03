@@ -16,12 +16,11 @@ foreach(_app IN LISTS cligen_apps)
 	# declare the app and source
 	add_executable(${_app} "${_app}.c")
 
-	# link against cligen
+	# link against the cligen library
 	target_link_libraries(${_app} PUBLIC cligen_shared)
 
 	# point to public headers
 	target_include_directories(${_app} PUBLIC "${PROJECT_SOURCE_DIR}/include")
-	
 endforeach()
 
 install(TARGETS ${cligen_apps} RUNTIME)

@@ -46,7 +46,12 @@ message(STATUS "Build time ${_today}")
 message(STATUS "Build user $ENV{USER}")
 
 # set the project name
-project(cligen VERSION 5.5.0)
+project(cligen
+    VERSION 5.5.0
+    DESCRIPTION "Command-Line Interface generator"
+    HOMEPAGE_URL "http://www.cligen.se/"
+    LANGUAGES C
+)
 
 # build the cligen library
 add_subdirectory(cligen)
