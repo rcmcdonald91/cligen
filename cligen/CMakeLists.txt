@@ -4,7 +4,7 @@
 #
 
 # start build check section
-message(STATUS "Performing build checks:")
+message(STATUS "Performing library build checks:")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 
 # just walk down the tree

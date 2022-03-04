@@ -3,24 +3,33 @@
 # Copyright (C) 2022 Rubicon Communications, LLC (Netgate)
 #
 
-# declare cligen apps by input and output name
+# start application build check section
+message(STATUS "Performing application build checks:")
+list(APPEND CMAKE_MESSAGE_INDENT "  ")
+
+# declare the cligen apps to build
 set(cligen_apps
 	cligen_file
 	cligen_hello
-	cligen_tutorial
-)
+	cligen_tutorial)
 
-# build each app and link against cligen
+# iterate over each app and create and link the build targets
 foreach(_app IN LISTS cligen_apps)
+	set(_app_filename "${_app}.c")
 
-	# declare the app and source
-	add_executable(${_app} "${_app}.c")
+	message(CHECK_START "Looking for ${_app_filename}")
 
-	# link against the cligen library
-	target_link_libraries(${_app} PUBLIC cligen_static)
+	# guard check, continue if successful
+	if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${_app_filename}")
+		message(CHECK_PASS "found, will build")
+		add_executable(${_app} "${_app_filename}")
+		target_link_libraries(${_app} PRIVATE cligen_shared)
+		install(TARGETS ${_app} RUNTIME)
+		continue()
+	endif()
 
-	# point to public headers
-	target_include_directories(${_app} PUBLIC "${PROJECT_SOURCE_DIR}/include")
+	message(CHECK_FAIL "not found")
 endforeach()
 
-install(TARGETS ${cligen_apps} RUNTIME)
+# end application build check section
+list(POP_BACK CMAKE_MESSAGE_INDENT)

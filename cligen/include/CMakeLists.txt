@@ -4,7 +4,7 @@
 #
 
 # start header file check section
-message(STATUS "Checking header files:")
+message(STATUS "Looking for header files:")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 
 # Bring in required CMake modules
@@ -22,12 +22,10 @@ set(HEADERS_TO_CHECK
 	"sys/stat.h"
 	"sys/types.h"
 	"termios.h"
-	"unistd.h"
-)
+	"unistd.h")
 
 # transform header file names into HAVE_ variables
 foreach(_header IN LISTS HEADERS_TO_CHECK)
-
 	# replaces / and . with _
 	string(REGEX REPLACE "[/|.]" "_" _header_v "${_header}")
 
@@ -42,18 +40,16 @@ endforeach()
 list(POP_BACK CMAKE_MESSAGE_INDENT)
 
 # start symbol check section
-message(STATUS "Checking symbols:")
+message(STATUS "Looking for symbols:")
 list(APPEND CMAKE_MESSAGE_INDENT "  ")
 
 # check these symbols
 set(SYMBOLS_TO_CHECK
 	strsep
-	strverscmp
-)
+	strverscmp)
 
 # transform symbol names into HAVE_ variables
 foreach(_symbol IN LISTS SYMBOLS_TO_CHECK)
-
 	# convert symbol name to uppercase HAVE_ variable
 	string(TOUPPER "HAVE_${_symbol}" _symbol_v)
 
@@ -61,8 +57,8 @@ foreach(_symbol IN LISTS SYMBOLS_TO_CHECK)
 	CHECK_SYMBOL_EXISTS(${_symbol} "${HEADERS_TO_CHECK}" ${_symbol_v})
 endforeach()
 
-# generate cligen_config.h, see cligen_config.h.in for usage
-configure_file(cligen_config.h.in cligen_config.h @ONLY)
-
 # end symbol check section
 list(POP_BACK CMAKE_MESSAGE_INDENT)
+
+# now generate cligen_config.h, see cligen_config.h.in for usage
+configure_file(cligen_config.h.in cligen_config.h @ONLY)
