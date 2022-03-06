@@ -34,8 +34,6 @@ else()
 	set(BUILD_SHARED_LIBS ON)
 endif()
 
-message(">>>> ${BUILD_SHARED_LIBS}")
-
 # ensure sure CMAKE_BUILD_TYPE is at least set to the default set above
 if(NOT CMAKE_BUILD_TYPE)
 	message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
