@@ -29,10 +29,12 @@ option(CLIGEN_WITH_LIBXML2 "Use GNOME/libxml2 regex engine" OFF)
 
 # we just hijack the built-in control variable here
 if(CLIGEN_STATIC)
-	set(BUILD_SHARED_LIBS ON)
-else()
 	set(BUILD_SHARED_LIBS OFF)
+else()
+	set(BUILD_SHARED_LIBS ON)
 endif()
+
+message(">>>> ${BUILD_SHARED_LIBS}")
 
 # ensure sure CMAKE_BUILD_TYPE is at least set to the default set above
 if(NOT CMAKE_BUILD_TYPE)
