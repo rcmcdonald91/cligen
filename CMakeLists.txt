@@ -15,12 +15,12 @@ include(CheckLibraryExists)
 include(CheckSymbolExists)
 include(GNUInstallDirs)
 
-# default build type
-set(DEFAULT_BUILD_TYPE Debug)
+# specify default build type
+set(DEFAULT_BUILD_TYPE Release)
 
 # options to control error behavior
-# XXX todo
 option(CLIGEN_MAINTAINER_MODE "Fail compliation on warnings" OFF)
+include(cmake/maintainer_mode.cmake)
 
 # cligen library options
 option(CLIGEN_SOURCE "Configure for source package only, skipping build configuration" OFF)
@@ -34,18 +34,10 @@ else()
 	set(BUILD_SHARED_LIBS ON)
 endif()
 
-# ensure sure CMAKE_BUILD_TYPE is at least set to the default set above
-if(NOT CMAKE_BUILD_TYPE)
-	message(STATUS "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
-	set(CMAKE_BUILD_TYPE "${DEFAULT_BUILD_TYPE}" CACHE
-		STRING "Choose the type of build." FORCE
-		)
-endif()
-
-# spew some host-related information
+# spew some useful host-related information
 include(cmake/host_info.cmake)
 
-# parse and set the correct version strings
+# parse and set the correct version strings from CLIGEN_VERSION
 include(cmake/version.cmake)
 
 # no need to execute any additional steps if only packaging the source

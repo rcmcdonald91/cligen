@@ -234,8 +234,10 @@ last_level(cvec *cvt,
 	   int   level)
 {
     int levels;
-    
-    assert((levels = cligen_cvv_levels(cvt)) >= 0);
+
+    levels = cligen_cvv_levels(cvt);
+    assert(levels >= 0);
+
     if (level >= levels)
 	return 1;
     return 0;

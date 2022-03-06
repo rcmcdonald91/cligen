@@ -165,8 +165,9 @@ set(LIB_SOURCES_ALL
 add_library(cligen "${LIB_SOURCES_ALL}")
 
 # we need to conditionally link against libxml2 here
-if(CLIGEN_USE_LIBXML2)
-	target_link_libraries(cligen ${LIBXML2_LIBRARIES})
+if(CLIGEN_WITH_LIBXML2)
+	# we use imported target here to propogate usage requirements
+	target_link_libraries(cligen PRIVATE LibXml2::LibXml2)
 endif()
 
 # set VERSION/SOVERSION to properly generate namelinks for shared library
