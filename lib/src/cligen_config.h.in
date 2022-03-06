@@ -1,14 +1,14 @@
-/* cligen_config.h.  Generated from cligen_config.h.in by CMake */
+/* cligen_config.h  Generated from cligen_config.h.in by CMake */
 
 /* 
  * Enable BSD select semantics allowing multiple input file descriptors to be
  * enabled at once, Not just stdin. Each extra fd is registered with
  * cligen_regfd()
  */
-#undef CLIGEN_REGFD
+#cmakedefine CLIGEN_REGFD @CLIGEN_REGFD@
 
 /* Experimental CLIGEN sub-modes */
-#undef CLIGEN_SUBMODE
+#cmakedefine CLIGEN_SUBMODE @CLIGEN_SUBMODE@
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #cmakedefine HAVE_INTTYPES_H @HAVE_INTTYPES_H@
@@ -49,34 +49,7 @@
 /* Define to 1 if you have the `strverscmp' function. */
 #cmakedefine HAVE_STRVERSCMP @HAVE_STRVERSCMP@
 
-/* Define to 1 if you have the `socket' library (-lsocket). */
-#undef HAVE_LIBSOCKET
-
 /* Define to 1 if you have the `xml2' library (-lxml2). */
-#undef HAVE_LIBXML2
-
-/* Define to the address where bug reports for this package should be sent. */
-#undef PACKAGE_BUGREPORT
-
-/* Define to the full name of this package. */
-#undef PACKAGE_NAME
-
-/* Define to the full name and version of this package. */
-#undef PACKAGE_STRING
-
-/* Define to the one symbol short name of this package. */
-#undef PACKAGE_TARNAME
-
-/* Define to the home page for this package. */
-#undef PACKAGE_URL
-
-/* Define to the version of this package. */
-#undef PACKAGE_VERSION
-
-/* Define to 1 if you have the ANSI C header files. */
-#undef STDC_HEADERS
-
-/* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a `char[]'. */
-#undef YYTEXT_POINTER
+#cmakedefine HAVE_LIBXML2 @HAVE_LIBXML2@
 
 #include "cligen_custom.h"
