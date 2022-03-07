@@ -1,0 +1,50 @@
+# Generated files
+# These should not end up in the source tree with out-of-source builds
+# doc
+# build.c
+# cligen_parse.tab.c
+# cligen_parse.tab.h
+# lex.cligen_parse.c
+# cligen_config.h
+# Makefile
+# config.log
+# config.status
+# cligen
+# cligen_hello
+# cligen_file
+# cligen_tutorial
+# cligen_tutorial.aux
+# cligen_tutorial.log
+# cligen_tutorial.toc
+# autom4te.cache
+# .depend
+# TAGS
+# build-root/.version
+# build-root/*.tar*
+# build-root/*.rpm
+# build-root/rpmbuild
+# build-root/debbuild
+# test/config.sh
+
+# Object files
+# These should not end up in the source tree with out-of-source builds
+# *.o
+
+# Libraries
+# These should not end up in the source tree with out-of-source builds
+# *.lib
+# *.a
+
+# Shared objects (inc. Windows DLLs)
+# These should not end up in the source tree with out-of-source builds
+# *.dll
+# *.so
+# *.a
+# *.so.*
+# *.dylib
+
+# Executables
+# These should not end up in the source tree with out-of-source builds
+# *.exe
+# *.out
+# *.app
