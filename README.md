@@ -65,13 +65,14 @@ The main documentation can be found in the [CLIgen Manual](cligen_manual.pdf).
 Additional background material can be found on the [CLIgen project website](https://www.cligen.se).
 
 ## Clixon
-CLIgen is _not_ a complete system. CLIgen is simply framework for quickly and easily building textual,
-syntax-driven command-based interfaces.
+CLIgen is _not_ a complete configuration management system. CLIgen is simply framework for quickly and easily
+building textual, syntax-driven command-based interfaces.
 
 Clixon is a complete YANG-based configuration manager that provides NETCONF, RESTCONF, and CLI interfaces.
 Clixon incorporates an embedded transactional database that supports validation, commit, and revert semantics.
 
-The Clixon CLI interface is provided by CLIgen.
+The [Clixon CLI interface](https://clixon-docs.readthedocs.io/en/latest/cli.html) functionality is provided by
+CLIgen.
 
 [Clixon project website](https://www.clicon.org)
 
@@ -83,15 +84,15 @@ The source code here is built and installed using CMake:
 ```
   git clone https://github.com/clicon/cligen
   mkdir build && cd build
-  cmake ../cligen
+  cmake ../cligen -DCLIGEN_WITH_APPS=YES -DCLIGEN_STATIC=YES
   cmake --build .
   cmake --install .
 ```
 
 Several CLIgen-specific build options are available:
 * `-DCLIGEN_MAINTAINER_MODE` Forces debug builds and verbose Makefile output.
-* `-DCLIGEN_STATIC` Builds a static library.
-* `-DCLIGEN_WITH_APPS` Builds the example applications linked according to `CLIGEN_STATIC`.
+* `-DCLIGEN_STATIC` Builds the static version of libcligen.
+* `-DCLIGEN_WITH_APPS` Builds the example applications (linked according to `CLIGEN_STATIC`).
 * `-DCLIGEN_WITH_LIBXML2` Build using the GNOME\LibXML2 regex engine.
 
 The source builds a single library. If you build applications, you should include `cligen.h` and link with the library `libcligen`.
