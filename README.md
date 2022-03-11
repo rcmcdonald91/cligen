@@ -66,9 +66,10 @@ Additional background material can be found on the [CLIgen project website](http
 
 ## Clixon
 CLIgen is _not_ a complete system. CLIgen is simply framework for quickly and easily building textual,
-syntax-driven command-based interfaces. Clixon is a complete YANG-based configuration manager that
-provides NETCONF, RESTCONF, and CLI interfaces. Clixon incorporates an embedded transactional
-database that supports validation, commit, and revert semantics.
+syntax-driven command-based interfaces.
+
+Clixon is a complete YANG-based configuration manager that provides NETCONF, RESTCONF, and CLI interfaces.
+Clixon incorporates an embedded transactional database that supports validation, commit, and revert semantics.
 
 The Clixon CLI interface is provided by CLIgen.
 
