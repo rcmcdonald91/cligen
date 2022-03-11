@@ -90,7 +90,8 @@ The source code here is built and installed using CMake:
 
 Several CLIgen-specific build options are available:
 * `-DCLIGEN_MAINTAINER_MODE` Forces debug builds and verbose Makefile output.
-* `-DCLIGEN_STATIC` Builds a static library. Example applications are statically linked.
+* `-DCLIGEN_STATIC` Builds a static library.
+* `-DCLIGEN_WITH_APPS` Builds the example applications linked according to `CLIGEN_STATIC`.
 * `-DCLIGEN_WITH_LIBXML2` Build using the GNOME\LibXML2 regex engine.
 
 The source builds a single library. If you build applications, you should include `cligen.h` and link with the library `libcligen`.
