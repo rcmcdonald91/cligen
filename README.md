@@ -97,7 +97,7 @@ Several CLIgen-specific build options are available:
 * `-DCLIGEN_WITH_APPS` Builds the example applications (linked according to `CLIGEN_STATIC`).
 * `-DCLIGEN_WITH_LIBXML2` Build using the GNOME\LibXML2 regex engine.
 
-The source builds a single library. If you build applications, you should include `cligen.h` and link with the library `libcligen`.
+The source builds a single library. If you build applications, you should include `cligen.h` and link with `libcligen`.
 
 There are several example applications:
 * `apps/cligen_hello` Simplest possible. Just builds a 'hello world' greeting by in-line C.
