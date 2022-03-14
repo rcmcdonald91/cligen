@@ -1,3 +1,5 @@
+![g82750](https://user-images.githubusercontent.com/3102039/158208698-b8d59caf-15b4-44fe-825a-e1770d9c672e.png)
+
 # CLIgen (Command-Line Interface GENerator)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/clicon/cligen/CLIgen%20CI?label=CLIgen%20CI&style=for-the-badge)](https://github.com/clicon/cligen/actions/workflows/ci.yml)
 [![GitHub Repo stars](https://img.shields.io/github/stars/clicon/cligen?style=for-the-badge)](https://github.com/clicon/cligen/stargazers)
