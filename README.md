@@ -1,11 +1,26 @@
-![g82750](https://user-images.githubusercontent.com/3102039/158208698-b8d59caf-15b4-44fe-825a-e1770d9c672e.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/3102039/158208698-b8d59caf-15b4-44fe-825a-e1770d9c672e.png"><break/>
+</p>
+<p align="center">
+<i>Command-Line Interface GENerator</i> 
+</p>
+
+<p align="center">
+  <a href="https://github.com/clicon/cligen/actions/workflows/ci.yml">
+    <img src="https://img.shields.io/github/workflow/status/clicon/cligen/CLIgen%20CI?label=CLIgen%20CI&style=for-the-badge" />
+  </a>
+  <a href="https://github.com/clicon/cligen/stargazers">
+    <img src="https://img.shields.io/github/stars/clicon/cligen?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/clicon/cligen/issues">
+    <img src="https://img.shields.io/github/issues/clicon/cligen?style=for-the-badge" />
+  </a>
+  <a href="https://codecov.io/gh/clicon/cligen">
+    <img src="https://img.shields.io/codecov/c/gh/clicon/cligen?style=for-the-badge&token=6HXN51SARU" />
+  </a>
+</p>
 
 # CLIgen (Command-Line Interface GENerator)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/clicon/cligen/CLIgen%20CI?label=CLIgen%20CI&style=for-the-badge)](https://github.com/clicon/cligen/actions/workflows/ci.yml)
-[![GitHub Repo stars](https://img.shields.io/github/stars/clicon/cligen?style=for-the-badge)](https://github.com/clicon/cligen/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/clicon/cligen?style=for-the-badge)](https://github.com/clicon/cligen/issues)
-![Codecov](https://img.shields.io/codecov/c/gh/clicon/cligen?style=for-the-badge&token=6HXN51SARU)
-
 CLIgen builds interactive, syntax-driven command-line interfaces (CLIs)
 from a high-level syntax specification. Interactive CLIs are often used in
 communication devices such as routers and switches. CLIgen is used to quickly
