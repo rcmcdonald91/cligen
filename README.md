@@ -38,7 +38,7 @@ hello("Some command help text"){
     world("Some more command help text"), cb("Hello World!");
 }
 ```
-A CLI with the syntax above will present the user with one keyword `hello`. The user can
+A CLI generated from the syntax above will present the user with one keyword `hello`. The user can
 type a question mark to see a list of contextually acceptable keywords. For example, on the top-level,
 only `hello` may be selected:
 ```
@@ -77,12 +77,12 @@ Hello World!
 ```
 
 ## Documentation
-The main documentation can be found in the [CLIgen Manual](cligen_manual.pdf).
+The complete documentation can be found in the [CLIgen Manual](cligen_manual.pdf).
 
-Additional background material can be found on the [CLIgen project website](https://www.cligen.se).
+Additional background material can be found on the [CLIgen project website](https://www.cligen.se/).
 
-## Clixon
-CLIgen is _not_ a complete configuration management system. CLIgen is simply framework for quickly and easily
+## What is Clixon?
+CLIgen is _not_ a complete configuration management system. CLIgen is simply a framework for quickly and easily
 building textual, syntax-driven command-based interfaces.
 
 Clixon is a complete YANG-based configuration manager that provides NETCONF, RESTCONF, and CLI interfaces.
@@ -91,9 +91,9 @@ Clixon incorporates an embedded transactional database that supports validation,
 The [Clixon CLI interface](https://clixon-docs.readthedocs.io/en/latest/cli.html) functionality is provided by
 CLIgen.
 
-[Clixon project website](https://www.clicon.org)
+[Clixon project website](https://www.clicon.org/)
 
-[Clixon GitHub](https://github.com/clicon/clixon)
+[Clixon GitHub](https://github.com/clicon/clixon/)
 
 ## Building/Installing from Source
 
@@ -106,8 +106,8 @@ The source code here is built and installed using CMake:
   cmake --install .
 ```
 
-Several CLIgen-specific build options are available:
-* `-DCLIGEN_MAINTAINER_MODE` Forces debug builds and verbose Makefile output.
+Several CLIgen-specific optional build options are available:
+* `-DCLIGEN_MAINTAINER_MODE` Forces a debug build and verbose Makefile output.
 * `-DCLIGEN_STATIC` Builds the static version of libcligen.
 * `-DCLIGEN_WITH_APPS` Builds the example applications (linked according to `CLIGEN_STATIC`).
 * `-DCLIGEN_WITH_LIBXML2` Build using the GNOME\LibXML2 regex engine.
@@ -115,9 +115,9 @@ Several CLIgen-specific build options are available:
 The source builds a single library. If you build applications, you should include `cligen.h` and link with `libcligen`.
 
 There are several example applications:
-* `apps/cligen_hello` Simplest possible. Just builds a 'hello world' greeting by in-line C.
-* `apps/cligen_file` Read a syntax specification from file. You must supply the file.
-* `apps/cligen_tutorial` Samples of techniques used in the [CLIgen Manual](cligen_tutorial.pdf).
+* `apps/cligen_hello` The simplest possible example. Just builds a 'hello world' greeting by in-line C.
+* `apps/cligen_file` Like cligen_hello but reads a syntax specification from file. You must supply the file.
+* `apps/cligen_tutorial` Samples of the techniques used in the [CLIgen Manual](cligen_tutorial.pdf).
 
 See also [Changelog](CHANGELOG.md).
 
