@@ -467,7 +467,7 @@ pt_expand_fnv(cligen_handle h,
     /* Make modifications to cvv */
     if (cvec_exclude_keys(cvv1) < 0)
 	goto done;
-    if ((*co->co_expandv_fn)(cligen_userhandle(h)?cligen_userhandle(h):h, 
+    if ((*co->co_expandv_fn)(h, 
 			     co->co_expand_fn_str, 
 			     cvv1,
 			     co->co_expand_fn_vec,
